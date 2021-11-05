@@ -1,18 +1,21 @@
+#include <vector>
+
 class BinarySearch {
 public:
     // initialize
-    BinarySearch();
-    BinarySearch(const int target);
+    BinarySearch(const int lower_value, const int upper_value);
+    // BinarySearch(const int target);
+    ~BinarySearch();
+
 
     // encryption related functions
     const unsigned int getIndexOf(const int target);
 
-    void setArray(const int lower, const int higher);
+    // void setArray(const int lower, const int upper);
+    // int *getArray(int *arraySize);
 
 private:
-    /*const*/ int target;//if it is const, it must be initialized at construction time.
-    int m_int_array[1000];
+    int lower_value;
+    int upper_value;
     unsigned int m_int_arrayLength;
-    unsigned int lower_boundary;
-    unsigned int higher_boundary;
 };

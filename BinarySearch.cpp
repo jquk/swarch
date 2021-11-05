@@ -20,61 +20,57 @@
 #include <iostream>
 #include <math.h>       /* round, floor, ceil, trunc */
 
+
 /*
 *
 */
-BinarySearch::BinarySearch() { }
+BinarySearch::BinarySearch(const int lower_value, const int upper_value)
+{
+  // this->setArray(lower_boundary, upper_boundary);
+  this->lower_value = lower_value;
+  this->upper_value = upper_value;
+  this->m_int_arrayLength = (upper_value - lower_value);
+}
+
+
+/*
+*
+*/
+BinarySearch::~BinarySearch() { }
+
 
 /*
 *
 */
 const unsigned int BinarySearch::getIndexOf(const int target)
 {
-  int finished = 0;
+  int m_int_array[this->m_int_arrayLength];
+  unsigned int lower_boundary = 0;
+  unsigned int upper_boundary= this->m_int_arrayLength;
+
+  for (int i = 0; i <= this->m_int_arrayLength; i++) {
+    m_int_array[i] = this->lower_value + i;
+  }
+
   int counter = 0;
   unsigned int index = (unsigned int)(this->m_int_arrayLength/2);
-  std::cout << "m_int_arrayLength: " << this->m_int_arrayLength << ", target: " << target << ", index: " << index << std::endl;
+  // std::cout << "m_int_arrayLength: " << this->m_int_arrayLength << ", target: " << target << ", index: " << index << std::endl;
 
-  while ((finished==0) && (counter < 50)) {
+
+  /*
+  * if lower_boundary > target/2, it returns the wrong value
+  */
+  while ((m_int_array[index] != target) && (counter < this->m_int_arrayLength)) {
     if (target < m_int_array[index]) {
-      this->higher_boundary = index;
-      index -= round((this->higher_boundary - this->lower_boundary)/2);
-      counter++;
-      std::cout << "index: " << index << ", counter: " << counter << ", finished: " << finished << std::endl;
+      upper_boundary = index;
+      std::cout << "target: " << target << " < array[" << index << "]-->" << m_int_array[index] << ", {lower, upper}={" << lower_boundary << ", " << upper_boundary << "}" << ", counter: " << counter << std::endl;
     } else if (target > m_int_array[index]) {
-      this->lower_boundary = index;
-      index += round((this->higher_boundary - this->lower_boundary)/2);
-      // index += (unsigned int)((unsigned int)(this.m_int_arrayLength/2)/2);
-      counter++;
-      std::cout << "index: " << index << ", counter: " << counter << ", finished: " << finished << std::endl;
-    } else {
-      finished = 1;
+      lower_boundary = index;
+      std::cout << "target: " << target << " > array[" << index << "]-->" << m_int_array[index] << ", {lower, upper}={" << lower_boundary << ", " << upper_boundary << "}" << ", counter: " << counter << std::endl;
     }
+    index = round((upper_boundary + lower_boundary)/2);
+    counter++;
   }
-  std::cout << "__\ntarget: " << target << ", index: " << index << ", m_int_array[index]: " << m_int_array[index] << ", counter: " << counter << ", finished: " << finished << std::endl;
+  std::cout << "target: " << target << " == array[" << index << "]-->" << m_int_array[index] << ", {lower, upper}={" << lower_boundary << ", " << upper_boundary << "}" << ", counter: " << counter << std::endl;
   return index;
-}
-
-
-
-/*
-*
-*/
-// template <typename T> inline T const& BinarySearch::getIndexOf(T const &target) {
-//
-//    return ;
-// }
-
-/*
-*
-*/
-void BinarySearch::setArray(const int lower, const int higher)
-{
-    for (int i = lower; i <= higher; i++) {
-        this->m_int_array[i] = lower + i;
-    }
-    this->m_int_arrayLength = (higher - lower);
-    this->lower_boundary = lower;
-    this->higher_boundary = higher;
-    std::cout << "m_int_array[0]: " << m_int_array[0] << ", m_int_array[last]: " << m_int_array[(higher - lower)] << std::endl;
 }

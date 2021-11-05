@@ -25,11 +25,8 @@
 * Constructor
 */
 BinarySearch::BinarySearch(const int lower_value, const int upper_value)
+: lower_value(lower_value), upper_value(upper_value), m_int_arrayLength(upper_value - lower_value)
 {
-  // this->setArray(lower_boundary, upper_boundary);
-  this->lower_value = lower_value;
-  this->upper_value = upper_value;
-  this->m_int_arrayLength = (upper_value - lower_value);
 }
 
 
@@ -56,9 +53,6 @@ const unsigned int BinarySearch::getIndexOf(const int target)
   int counter = 0;
   unsigned int index = (unsigned int)(this->m_int_arrayLength/2);
 
-  /*
-  * if lower_boundary > target/2, it returns the wrong value
-  */
   while ((m_int_array[index] != target) && (counter < this->m_int_arrayLength)) {
     if (target < m_int_array[index]) {
       upper_boundary = index;

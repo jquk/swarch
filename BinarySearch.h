@@ -4,15 +4,10 @@ class BinarySearch {
 public:
     // initialize
     BinarySearch(const int lower_value, const int upper_value);
-    // BinarySearch(const int target);
     ~BinarySearch();
 
-
-    // encryption related functions
+    // member functions
     const unsigned int getIndexOf(const int target);
-
-    // void setArray(const int lower, const int upper);
-    // int *getArray(int *arraySize);
 
 private:
     int lower_value;

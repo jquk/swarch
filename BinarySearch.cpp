@@ -18,11 +18,11 @@
 
 #include "BinarySearch.h"
 #include <iostream>
-#include <math.h>       /* round, floor, ceil, trunc */
+#include <math.h>/* round, floor, ceil, trunc */
 
 
 /*
-*
+* Constructor
 */
 BinarySearch::BinarySearch(const int lower_value, const int upper_value)
 {
@@ -34,13 +34,14 @@ BinarySearch::BinarySearch(const int lower_value, const int upper_value)
 
 
 /*
-*
+* Destructor
 */
 BinarySearch::~BinarySearch() { }
 
 
 /*
-*
+* Public member function.
+* returns the index of 'target' in the sorted array defined with the construction parameters.
 */
 const unsigned int BinarySearch::getIndexOf(const int target)
 {
@@ -54,8 +55,6 @@ const unsigned int BinarySearch::getIndexOf(const int target)
 
   int counter = 0;
   unsigned int index = (unsigned int)(this->m_int_arrayLength/2);
-  // std::cout << "m_int_arrayLength: " << this->m_int_arrayLength << ", target: " << target << ", index: " << index << std::endl;
-
 
   /*
   * if lower_boundary > target/2, it returns the wrong value

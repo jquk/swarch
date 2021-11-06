@@ -28,7 +28,7 @@
 * will try to find a target value passed to the function getIndexOf.
 */
 BinarySearch::BinarySearch(const int lower_value, const int upper_value)
-: lower_value(lower_value), upper_value(upper_value), m_int_arrayLength(upper_value - lower_value)
+: m_lower_value(lower_value), m_upper_value(upper_value), m_int_arrayLength(upper_value - lower_value)
 {
 }
 
@@ -54,7 +54,7 @@ const int BinarySearch::getIndexOf(const int target)
   unsigned int old_upper_boundary = upper_boundary - 1;//ensure they are different at the beginning, to not break the while loop.
 
   for (int i = 0; i <= this->m_int_arrayLength; i++) {
-    m_int_array[i] = this->lower_value + i;
+    m_int_array[i] = this->m_lower_value + i;
   }
 
   int counter = 0;

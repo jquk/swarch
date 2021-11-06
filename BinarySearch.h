@@ -15,7 +15,7 @@ public:
 
 private:
   // member variables
-  int lower_value;
-  int upper_value;
+  int m_lower_value;
+  int m_upper_value;
   unsigned int m_int_arrayLength;
 };

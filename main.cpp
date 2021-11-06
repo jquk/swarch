@@ -1,4 +1,5 @@
 #include "BinarySearch.h"
+#include "graphs/Graph.h"
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
@@ -15,14 +16,24 @@ int main(int argc, char *argv[])
 {
   std::cout << "Running the program " << argv[0] << ", to use the algorithm " << argv[1] << " passing it " << (argc - 2) << " parameters." << std::endl;
 
+  std::string algorithmName(argv[1]);
   // Add any algorithm to the following chain of if-else blocks.
-  if ((std::string(argv[1]) == "BinarySearch") && (argc == 5)) {
+  if ((algorithmName == "BinarySearch") && (argc == 5)) {
     int target = atoi(argv[2]);
     int lower_boundary = atoi(argv[3]);
     int upper_boundary = atoi(argv[4]);
     BinarySearch binarySearch(lower_boundary, upper_boundary);
     int index = binarySearch.getIndexOf(target);
     std::cout << "index: " << index << std::endl;
+  } else if ((algorithmName == "BFS") || (algorithmName == "BreadthFirstSearch")) {
+    std::cout << "BFS" << std::endl;
+    Graph graph;
+    if (argv[2]) {
+      int nodeIndex = atoi(argv[2]);
+      graph.printNeighborsOfNode(nodeIndex);
+    } else {
+      graph.printGraph();
+    }
   } else {
     std::cout << "Wrong or not enough input parameters.\nThe first parameter must be the algorithm name in Pascal notation style, and the rest of the parameters are algorithm-dependent." << std::endl;
   }

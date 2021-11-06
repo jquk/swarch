@@ -1,5 +1,6 @@
+#include <vector>
 /*
-* Implementation of the Breadth First Search algorithm.
+*
 */
 class Graph {
 public:
@@ -8,8 +9,17 @@ public:
   // destructor
   ~Graph();
 
-  // member functions
+  // public member variables
+
+
+  // public member functions
+  std::vector<std::vector<unsigned int>> getGraph();
+  void printGraph();
+  const std::vector<unsigned int> getNeighborsOfNode(unsigned int nodeIndex);
+  void printNeighborsOfNode(unsigned int nodeIndex);
 
 private:
-  // member variables
+  // private member variables
+  std::vector<std::vector<unsigned int>>m_adjacentMatrix;
+  // private member functions
 };

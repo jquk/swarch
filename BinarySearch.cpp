@@ -41,7 +41,8 @@ BinarySearch::~BinarySearch() { }
 
 /*
 * Public member function.
-* returns the index of 'target' in the sorted array defined with the construction parameters.
+* Returns the index of 'target' in the sorted array defined with the construction parameters.
+* Returns -1 if the target is not found in the sorted array.
 */
 const int BinarySearch::getIndexOf(const int target)
 {

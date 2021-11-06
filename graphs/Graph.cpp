@@ -7,7 +7,7 @@
 */
 Graph::Graph()
 {
-  m_adjacentMatrix = adjacentMatrix_Cfg_1;
+  m_adjacentMatrix = adjacentMatrix_Cfg;
 }
 
 /*

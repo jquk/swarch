@@ -1,5 +1,8 @@
 #include <vector>
 
+/*
+* Implementation of the Binary Search algorithm.
+*/
 class BinarySearch {
 public:
     // initialize
@@ -7,7 +10,7 @@ public:
     ~BinarySearch();
 
     // member functions
-    const unsigned int getIndexOf(const int target);
+    const int getIndexOf(const int target);
 
 private:
     int lower_value;

@@ -7,7 +7,7 @@
 */
 Graph::Graph()
 {
-  m_adjacentMatrix = adjacentMatrix_Cfg;
+  m_connectionsMatrix = adjacentMatrix_Cfg;
 }
 
 /*
@@ -19,11 +19,11 @@ Graph::~Graph()
 }
 
 /*
-* Getter function for the private member variable m_adjacentMatrix.
+* Getter function for the private member variable m_connectionsMatrix.
 */
 std::vector<std::vector<unsigned int>> Graph::getGraph()
 {
-  return this->m_adjacentMatrix;
+  return this->m_connectionsMatrix;
 }
 
 /*
@@ -33,10 +33,10 @@ void Graph::printGraph()
 {
   std::string adjacentMatrix_str("");
   std::cout << "Graph:\n";
-  for (size_t i = 0; i < this->m_adjacentMatrix.size(); i++) {
+  for (size_t i = 0; i < this->m_connectionsMatrix.size(); i++) {
     adjacentMatrix_str += "Node#" + std::to_string(i) + "'s connections: ";
-    for (size_t j = 0; j < this->m_adjacentMatrix.at(i).size(); j++) {
-      adjacentMatrix_str += std::to_string(this->m_adjacentMatrix.at(i).at(j)) + " ";
+    for (size_t j = 0; j < this->m_connectionsMatrix.at(i).size(); j++) {
+      adjacentMatrix_str += std::to_string(this->m_connectionsMatrix.at(i).at(j)) + " ";
     }
     adjacentMatrix_str += "\n";
   }
@@ -50,10 +50,10 @@ void Graph::printGraph()
 const std::vector<unsigned int> Graph::getNeighborsOfNode(unsigned int nodeIndex)
 {
   // std::vector<unsigned int> nodeNeighbors;
-  // for (unsigned int i = 0; i < this->m_adjacentMatrix.at(nodeIndex).size; i++) {
+  // for (unsigned int i = 0; i < this->m_connectionsMatrix.at(nodeIndex).size; i++) {
   //   nodeNeighbors.push_back(i);
   // }
-  return this->m_adjacentMatrix.at(nodeIndex);
+  return this->m_connectionsMatrix.at(nodeIndex);
 }
 
 /*

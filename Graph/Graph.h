@@ -20,6 +20,6 @@ public:
 
 private:
   // private member variables
-  std::vector<std::vector<unsigned int>>m_adjacentMatrix;
+  std::vector<std::vector<unsigned int>>m_connectionsMatrix;
   // private member functions
 };

@@ -1,5 +1,5 @@
-#include "BinarySearch.h"
-#include "graphs/Graph.h"
+#include "SearchAndSorting/BinarySearch.h"
+#include "Graph/Graph.h"
 #include <iostream>
 #include <cstdlib>
 #include <cstring>

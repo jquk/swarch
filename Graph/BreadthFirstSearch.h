@@ -1,3 +1,4 @@
+#include <queue>
 /*
 * Implementation of the Breadth First Search algorithm.
 */
@@ -12,4 +13,5 @@ public:
 
 private:
   // member variables
+  std::queue<int>m_nodes;
 };

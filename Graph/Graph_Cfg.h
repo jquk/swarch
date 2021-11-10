@@ -26,4 +26,23 @@ std::vector<std::vector<unsigned int>>adjacentMatrix_Cfg_1 {
   /*E*/{0, 0, 0, 1, 0}//E is connected to D.
 };
 
-std::vector<std::vector<unsigned int>>adjacentMatrix_Cfg = adjacentMatrix_Cfg_1;
+// Take the reference from the picture 'AdjacentMatrix-ex1.png'
+// but making it unweighted.
+std::vector<std::vector<unsigned int>>adjacentMatrix_Cfg_2 {
+      /*{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}*/
+  /*00*/{0, 0, 0, 0, 0, 0, 0, 1, 0, 1,  0,  1,  0},//0 is connected to 7, 9, 11.
+  /*01*/{0, 0, 0, 0, 0, 0, 0, 0, 1, 0,  1,  0,  0},//1 is connected to 8, 10.
+  /*02*/{0, 0, 0, 1, 0, 0, 0, 0, 0, 0,  0,  0,  1},//2 is connected to 3, 12.
+  /*03*/{0, 0, 1, 0, 1, 0, 0, 1, 0, 0,  0,  0,  0},//3 is connected to 2, 4, 7.
+  /*04*/{0, 0, 0, 1, 0, 0, 0, 0, 0, 0,  0,  0,  0},//4 is connected to 3.
+  /*05*/{0, 0, 0, 0, 0, 0, 1, 0, 0, 0,  0,  0,  0},//5 is connected to 6.
+  /*06*/{0, 0, 0, 0, 0, 1, 0, 1, 0, 0,  0,  0,  0},//6 is connected to 5, 7.
+  /*07*/{1, 0, 0, 1, 0, 0, 1, 0, 0, 0,  0,  1,  0},//7 is connected to 0, 3, 6, 11.
+  /*08*/{0, 1, 0, 0, 0, 0, 0, 0, 0, 1,  0,  0,  1},//8 is connected to 1, 9, 12.
+  /*09*/{1, 0, 0, 0, 0, 0, 0, 0, 1, 0,  1,  0,  0},//9 is connected to 0, 8, 10.
+  /*10*/{0, 1, 0, 0, 0, 0, 0, 0, 0, 1,  0,  0,  0},//10 is connected to 1, 9.
+  /*11*/{1, 0, 0, 0, 0, 0, 0, 1, 0, 0,  0,  0,  0},//11 is connected to 0, 7.
+  /*12*/{0, 0, 1, 0, 0, 0, 0, 0, 1, 0,  0,  0,  0}//12  is connected to 2, 8.
+};
+
+std::vector<std::vector<unsigned int>>adjacentMatrix_Cfg = adjacentMatrix_Cfg_2;

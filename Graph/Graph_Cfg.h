@@ -15,7 +15,7 @@
 * thus being non-simmetric, meaning that every connection has its opposite, but could have different costs in each direction.
 */
 
-// Take the reference from the picture 'AdjacentMatrix-ex1.png'
+// Take the reference from the picture 'ex1-AdjacencyMatrix.png'
 // but making it unweighted.
 std::vector<std::vector<unsigned int>>adjacentMatrix_Cfg_1 {
      /*{A, B, C, D, E}*/
@@ -26,8 +26,7 @@ std::vector<std::vector<unsigned int>>adjacentMatrix_Cfg_1 {
   /*E*/{0, 0, 0, 1, 0}//E is connected to D.
 };
 
-// Take the reference from the picture 'AdjacentMatrix-ex1.png'
-// but making it unweighted.
+// Take the reference from the picture 'ex2-BFS_graph_queue.png'
 std::vector<std::vector<unsigned int>>adjacentMatrix_Cfg_2 {
       /*{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}*/
   /*00*/{0, 0, 0, 0, 0, 0, 0, 1, 0, 1,  0,  1,  0},//0 is connected to 7, 9, 11.

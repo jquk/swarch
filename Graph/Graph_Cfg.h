@@ -1,8 +1,8 @@
 #include <vector>
 
 /*
-* At the end of this file, assign the preferred adjacentMatrix_Cfg_<N> to adjacentMatrix_Cfg,
-* being adjacentMatrix_Cfg the one that will be used in the algorithms.
+* At the end of this file, assign the preferred connectionsMatrix_Cfg_<N> to connectionsMatrix_Cfg,
+* being connectionsMatrix_Cfg the one that will be used in the algorithms.
 *
 * 2D matrix representing the connections
 * between the graph's nodes (A to E).
@@ -17,7 +17,7 @@
 
 // Take the reference from the picture 'ex1-AdjacencyMatrix.png'
 // but making it unweighted.
-std::vector<std::vector<unsigned int>>adjacentMatrix_Cfg_1 {
+std::vector<std::vector<unsigned int>>connectionsMatrix_Cfg_1 {
      /*{A, B, C, D, E}*/
   /*A*/{0, 1, 0, 1, 0},//A is connected to B, D.
   /*B*/{1, 0, 1, 0, 0},//B is connected to A, C.
@@ -27,7 +27,7 @@ std::vector<std::vector<unsigned int>>adjacentMatrix_Cfg_1 {
 };
 
 // Take the reference from the picture 'ex2-BFS_graph_queue.png'
-std::vector<std::vector<unsigned int>>adjacentMatrix_Cfg_2 {
+std::vector<std::vector<unsigned int>>connectionsMatrix_Cfg_2 {
       /*{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}*/
   /*00*/{0, 0, 0, 0, 0, 0, 0, 1, 0, 1,  0,  1,  0},//0 is connected to 7, 9, 11.
   /*01*/{0, 0, 0, 0, 0, 0, 0, 0, 1, 0,  1,  0,  0},//1 is connected to 8, 10.
@@ -41,7 +41,7 @@ std::vector<std::vector<unsigned int>>adjacentMatrix_Cfg_2 {
   /*09*/{1, 0, 0, 0, 0, 0, 0, 0, 1, 0,  1,  0,  0},//9 is connected to 0, 8, 10.
   /*10*/{0, 1, 0, 0, 0, 0, 0, 0, 0, 1,  0,  0,  0},//10 is connected to 1, 9.
   /*11*/{1, 0, 0, 0, 0, 0, 0, 1, 0, 0,  0,  0,  0},//11 is connected to 0, 7.
-  /*12*/{0, 0, 1, 0, 0, 0, 0, 0, 1, 0,  0,  0,  0}//12  is connected to 2, 8.
+  /*12*/{0, 0, 1, 0, 0, 0, 0, 0, 1, 0,  0,  0,  0}//12 is connected to 2, 8.
 };
 
-std::vector<std::vector<unsigned int>>adjacentMatrix_Cfg = adjacentMatrix_Cfg_2;
+std::vector<std::vector<unsigned int>>connectionsMatrix_Cfg = connectionsMatrix_Cfg_2;

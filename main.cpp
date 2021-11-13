@@ -27,12 +27,25 @@ int main(int argc, char *argv[])
     std::cout << "index: " << index << std::endl;
   } else if ((algorithmName == "BFS") || (algorithmName == "BreadthFirstSearch")) {
     std::cout << "BFS" << std::endl;
+    // Graph::Graph(std::vector<std::vector<unsigned int>>connectionsMatrix)
     Graph graph;
-    if (argv[2]) {
-      int nodeIndex = atoi(argv[2]);
-      graph.printNeighborsOfNode(nodeIndex);
+    graph.setGraph(2);
+
+    if (argv[2] && argv[3]) {
+      int startingNode = atoi(argv[2]);
+      int targetNode = atoi(argv[3]);
+      graph.printNeighborsOfNode(startingNode);
+      graph.printNeighborsOfNode(targetNode);
+      std::vector<unsigned int> shortestPath = graph.getShortestPath(BREADTH_FIRST_SEARCH, startingNode, targetNode);
+      std::cout << "Shortest path: ";
+      for (unsigned int i = 0; i < shortestPath.size(); i++) {
+        std::cout << shortestPath[i] << " ";
+      }
+      std::cout << std::endl;
     } else {
-      graph.printGraph();
+      graph.printGraphConnections();
+      graph.calculateGraphConnectionsIds();
+      graph.printGraphConnectionsIds();
     }
   } else {
     std::cout << "Wrong or not enough input parameters.\nThe first parameter must be the algorithm name in Pascal notation style, and the rest of the parameters are algorithm-dependent." << std::endl;

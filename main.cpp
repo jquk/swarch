@@ -27,15 +27,13 @@ int main(int argc, char *argv[])
     std::cout << "index: " << index << std::endl;
   } else if ((algorithmName == "BFS") || (algorithmName == "BreadthFirstSearch")) {
     std::cout << "BFS" << std::endl;
-    // Graph::Graph(std::vector<std::vector<unsigned int>>connectionsMatrix)
     Graph graph;
     graph.setGraph(2);
-
     if (argv[2] && argv[3]) {
       int startingNode = atoi(argv[2]);
       int targetNode = atoi(argv[3]);
-      graph.printNeighborsOfNode(startingNode);
-      graph.printNeighborsOfNode(targetNode);
+      graph.printNeighborIdsOfNode(startingNode);
+      graph.printNeighborIdsOfNode(targetNode);
       std::vector<unsigned int> shortestPath = graph.getShortestPath(BREADTH_FIRST_SEARCH, startingNode, targetNode);
       std::cout << "Shortest path: ";
       for (unsigned int i = 0; i < shortestPath.size(); i++) {
@@ -44,7 +42,6 @@ int main(int argc, char *argv[])
       std::cout << std::endl;
     } else {
       graph.printGraphConnections();
-      graph.calculateGraphConnectionsIds();
       graph.printGraphConnectionsIds();
     }
   } else {

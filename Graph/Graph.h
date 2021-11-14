@@ -23,10 +23,10 @@ public:
   std::vector<std::vector<unsigned int>> getGraphConnectionsIds();
   void printGraphConnections();
   void printGraphConnectionsIds();
-  const std::vector<unsigned int> getNeighborsOfNode(unsigned int nodeIndex);
+  const std::vector<unsigned int> getNeighborConnectionsOfNode(unsigned int nodeIndex);
   const std::vector<unsigned int> getNeighborsIdsOfNode(unsigned int nodeIndex);
-  void printNeighborsOfNode(unsigned int nodeIndex);
-  void printNeighborsIdsOfNode(unsigned int nodeIndex);
+  void printNeighborConnectionsOfNode(unsigned int nodeIndex);
+  void printNeighborIdsOfNode(unsigned int nodeIndex);
   std::vector<unsigned int> getShortestPath(GraphAlgorithm algorithm, unsigned int startingNode, unsigned int targetNode);
 
 private:

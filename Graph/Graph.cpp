@@ -19,8 +19,7 @@ Graph::Graph(std::vector<std::vector<unsigned int>>connectionsMatrix)
 {
   // Using the fill constructor to construct a vector of vectors
   // vector<vector<int>> mat(R, vector<int>(C));
-  this->m_connectionsIdsMatrix = this->getGraphConnectionsIds();
-  // this->m_connectionsIdsMatrix = ;
+  this->calculateGraphConnectionsIds();
 }
 
 /*
@@ -52,6 +51,7 @@ void Graph::setGraph(unsigned int graphId)
       this->m_connectionsMatrix = connectionsMatrix_Cfg;
     }
   }
+  this->calculateGraphConnectionsIds();
 }
 
 /*
@@ -129,7 +129,7 @@ void Graph::printGraphConnectionsIds()
 * This function takes in an input parameter that corresponds to the node
 * for which it will return a vector containing the connections to the rest of the nodes.
 */
-const std::vector<unsigned int> Graph::getNeighborsOfNode(unsigned int nodeIndex)
+const std::vector<unsigned int> Graph::getNeighborConnectionsOfNode(unsigned int nodeIndex)
 {
   // std::vector<unsigned int> nodeNeighbors;
   // for (unsigned int i = 0; i < this->m_connectionsMatrix.at(nodeIndex).size; i++) {
@@ -141,18 +141,36 @@ const std::vector<unsigned int> Graph::getNeighborsOfNode(unsigned int nodeIndex
 /*
 *
 */
-void Graph::printNeighborsOfNode(unsigned int nodeIndex)
+const std::vector<unsigned int> Graph::getNeighborsIdsOfNode(unsigned int nodeIndex)
 {
-  std::vector<unsigned int> nodeNeighbors = this->getNeighborsOfNode(nodeIndex);
+  return this->m_connectionsIdsMatrix.at(nodeIndex);
+}
+
+/*
+*
+*/
+void Graph::printNeighborConnectionsOfNode(unsigned int nodeIndex)
+{
+  std::vector<unsigned int> nodeNeighbors = this->getNeighborConnectionsOfNode(nodeIndex);
   std::string nodeNeighborsConnections_str("");
-  std::string nodeNeighborsId_str("");
+  std::string nodeNeighborIds_str("");
   for (size_t i = 0; i < nodeNeighbors.size(); i++) {
-    if (nodeNeighbors.at(i) == 1) {
-      nodeNeighborsId_str += std::to_string(i) + " ";
-    }
     nodeNeighborsConnections_str += std::to_string(nodeNeighbors.at(i)) + " ";
   }
-  std::cout << "Node#" << std::to_string(nodeIndex) << "'s connections = { " << nodeNeighborsId_str << "} = " << nodeNeighborsConnections_str << std::endl;
+  std::cout << "Node#" << std::to_string(nodeIndex) << "'s neighbor connections = { " << nodeNeighborsConnections_str << "}" << std::endl;
+}
+
+/*
+*
+*/
+void Graph::printNeighborIdsOfNode(unsigned int nodeIndex)
+{
+  std::vector<unsigned int> nodeNeighbors = this->getNeighborsIdsOfNode(nodeIndex);
+  std::string nodeNeighborIds_str("");
+  for (size_t i = 0; i < nodeNeighbors.size(); i++) {
+    nodeNeighborIds_str += std::to_string(nodeNeighbors.at(i)) + " ";
+  }
+  std::cout << "Node#" << std::to_string(nodeIndex) << "'s neighbor IDs = { " << nodeNeighborIds_str << "}" << std::endl;
 }
 
 /*

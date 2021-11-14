@@ -1,5 +1,9 @@
 # Graph Algorithms
 
+## Graph class
+An instance of the Graph class will load the adjacentMatrix_Cfg.
+In the Graph_Cfg.h file you can create new connection matrix (adjacentMatrix), and assign it to adjacentMatrix_Cfg, to be loaded by any Graph instance.
+
 ## Breadth First Search (BFS)
 Used to explore nodes and edges on a graph.
 Runs in time complexity O(NoVertices + NoEdges).

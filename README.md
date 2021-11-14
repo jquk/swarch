@@ -1,10 +1,9 @@
 # swarch
-Software architecture related code snippets, exercises and documentation
+Software architecture related code snippets, exercises and documentation.
 
 # Compile and Run
 ```
 g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Graph/Graph.cpp -o bin/main && ./bin/main <algoName> <params...>
-
 ```
 
 ## Interesting algorithms

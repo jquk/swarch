@@ -115,8 +115,6 @@ void Graph::printGraphConnectionsIds()
 {
   std::string connectionsIdsMatrix_str("");
   std::cout << "GraphConnectionsIds:\n";
-  std::cout << "this->m_connectionsIdsMatrix.size(): " << this->m_connectionsIdsMatrix.size() << "\n";
-  std::cout << "this->m_connectionsIdsMatrix.at(i).size(): " << this->m_connectionsIdsMatrix.at(0).size() << "\n";
   for (size_t i = 0; i < this->m_connectionsIdsMatrix.size(); i++) {
     connectionsIdsMatrix_str += "Node#" + std::to_string(i) + "'s connections: { ";
     for (size_t j = 0; j < this->m_connectionsIdsMatrix.at(i).size(); j++) {
@@ -172,7 +170,7 @@ void Graph::printNeighborIdsOfNode(unsigned int nodeIndex)
   for (size_t i = 0; i < nodeNeighbors.size(); i++) {
     nodeNeighborIds_str += std::to_string(nodeNeighbors.at(i)) + " ";
   }
-  std::cout << "Node#" << std::to_string(nodeIndex) << "'s neighbor IDs = { " << nodeNeighborIds_str << "}--" << std::endl;
+  std::cout << "Node#" << std::to_string(nodeIndex) << "'s neighbor IDs = { " << nodeNeighborIds_str << "}" << std::endl;
 }
 
 /*

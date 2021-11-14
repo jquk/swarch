@@ -1,6 +1,14 @@
 # swarch
 Software architecture related code snippets, exercises and documentation.
 
+# Status
+Project under active development.
+Algorithms implemented:
+1. [x] Binary search.
+
+Algorithms under development:
+- Breadth First Search
+
 # Compile and Run
 ```
 g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Graph/Graph.cpp -o bin/main && ./bin/main <algoName> <params...>

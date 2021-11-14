@@ -85,16 +85,16 @@ void Graph::printGraphConnections()
 */
 void Graph::calculateGraphConnectionsIds()
 {
-  // For each row (node), iterate also over the columns (connections to other nodes)
-  // Here the index j corresponds to the connected neighbor's ID.
-  for (size_t i = 0; i < this->m_connectionsMatrix.size(); i++) {
-    // connectionMatrix_str += "Node#" + std::to_string(i) + "'s connections: ";
-    for (size_t j = 0; j < this->m_connectionsMatrix.at(i).size(); j++) {
-      // connectionMatrix_str += std::to_string(this->m_connectionsMatrix.at(i).at(j)) + " ";
-      if (this->m_connectionsMatrix.at(i).at(j) == 1) {
-        // std::cout << "__ i: " << i << " __j: " << j << " __val: " << this->m_connectionsMatrix.at(i).at(j) << std::endl;
-        if ( i >= this->m_connectionsIdsMatrix.size()) this->m_connectionsIdsMatrix.resize(this->m_connectionsIdsMatrix.size() + 1);
-        this->m_connectionsIdsMatrix.at(i).push_back(j);
+  if (this->m_connectionsIdsMatrix.empty()) {
+    this->m_connectionsIdsMatrix.resize(this->m_connectionsMatrix.size());
+    // For each row (node), iterate also over the columns (connections to other nodes)
+    // Here the index j corresponds to the connected neighbor's ID.
+    for (size_t i = 0; i < this->m_connectionsMatrix.size(); i++) {
+      for (size_t j = 0; j < this->m_connectionsMatrix.at(i).size(); j++) {
+        // connectionMatrix_str += std::to_string(this->m_connectionsMatrix.at(i).at(j)) + " ";
+        if (this->m_connectionsMatrix.at(i).at(j) == 1) {
+          this->m_connectionsIdsMatrix.at(i).push_back(j);
+        }
       }
     }
   }
@@ -115,6 +115,8 @@ void Graph::printGraphConnectionsIds()
 {
   std::string connectionsIdsMatrix_str("");
   std::cout << "GraphConnectionsIds:\n";
+  std::cout << "this->m_connectionsIdsMatrix.size(): " << this->m_connectionsIdsMatrix.size() << "\n";
+  std::cout << "this->m_connectionsIdsMatrix.at(i).size(): " << this->m_connectionsIdsMatrix.at(0).size() << "\n";
   for (size_t i = 0; i < this->m_connectionsIdsMatrix.size(); i++) {
     connectionsIdsMatrix_str += "Node#" + std::to_string(i) + "'s connections: { ";
     for (size_t j = 0; j < this->m_connectionsIdsMatrix.at(i).size(); j++) {
@@ -170,7 +172,7 @@ void Graph::printNeighborIdsOfNode(unsigned int nodeIndex)
   for (size_t i = 0; i < nodeNeighbors.size(); i++) {
     nodeNeighborIds_str += std::to_string(nodeNeighbors.at(i)) + " ";
   }
-  std::cout << "Node#" << std::to_string(nodeIndex) << "'s neighbor IDs = { " << nodeNeighborIds_str << "}" << std::endl;
+  std::cout << "Node#" << std::to_string(nodeIndex) << "'s neighbor IDs = { " << nodeNeighborIds_str << "}--" << std::endl;
 }
 
 /*
@@ -184,7 +186,7 @@ std::vector<unsigned int> Graph::getShortestPath(GraphAlgorithm algorithm, unsig
     case BREADTH_FIRST_SEARCH:
       {
         BreadthFirstSearch breadthFirstSearch(this->m_connectionsMatrix);
-        retVal_shortestPath = breadthFirstSearch.getShortestPath(0, 4);
+        retVal_shortestPath = breadthFirstSearch.getShortestPath(startingNode, targetNode);
         break;
       }
     case DEPTH_FIRST_SEARCH:

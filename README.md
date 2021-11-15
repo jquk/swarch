@@ -3,25 +3,24 @@ Software architecture related code snippets, exercises and documentation.
 
 # Status
 Project under active development.
-Algorithms implemented:
-1. [x] Binary search.
-
-Algorithms under development:
-- Breadth First Search
 
 # Compile and Run
 ```
-g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Graph/Graph.cpp -o bin/main && ./bin/main <algoName> <params...>
+g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Graph/Graph.cpp -o bin/main && ./bin/main <algoCathegory> <algoName> <params...>
 ```
 
 ## Interesting algorithms
+Note the meaning of the highlights in this list:
+ - *Italics* highlight for implemented algorithms.
+ - **Bold** highlight for algorithms under active development.
+
 ### Graph algorithms
-1. Breadth First Search (BFS)
+1. **Breadth First Search (BFS)**
 2. Depth First Search (DFS)
-3. Shor test Path from source to all ver tices **Dijkstra**
-4. Shor test Path from ever y ver tex to ever y other ver tex **Floyd Warshall**
-5. Minimum Spanning tree **Prim**
-6. Minimum Spanning tree **Kruskal**
+3. Short test Path from source to all vertices Dijkstra
+4. Short test Path from ever y vertex to ever y other vertex Floyd Warshall
+5. Minimum Spanning tree Prim
+6. Minimum Spanning tree Kruskal
 7. Topological Sort
 8. Johnson’s algorithm
 9. Articulation Points (or Cut Vertices) in a Graph
@@ -39,7 +38,7 @@ g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Grap
 10. Assembly Line Scheduling
 
 ### Search and sorting
-1. Binary Search
+1. *Binary Search*
 2. Quick Sort
 3. Merge Sort
 4. Order Statistics
@@ -63,7 +62,7 @@ g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Grap
 
 #### Modulo Arithmetic Algorithms
 1. Basic and Extended Euclidean algorithms
-2. Euler ’s Totient Function
+2. Euler’s Totient Function
 3. Modular Exponentiation
 4. Modular Multiplicative Inverse
 5. Chinese remainder theorem Introduction
@@ -76,14 +75,14 @@ g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Grap
 3. Line Intersection
 4. Inter val Tree
 5. Matrix Exponentiation and this
-6. Maxflow Ford Furkerson Algo and Edmond Karp Implementation
+6. Maxflow Ford Furkerson algorithm and Edmond Karp Implementation
 7. Min cut
 8. Stable Marriage Problem
 9. Hopcrof t–Karp Algorithm for Maximum Matching
 10. Dinic’s algo and e-maxx
 
 ### Data structures
-1. Binar y Indexed Tree or Fenwick tree
+1. Binary Indexed Tree or Fenwick tree
 2. Segment Tree (RMQ, Range Sum and L azy Propagation)
 3. K-D tree (See inser t, minimum and delete)
 4. Union Find Disjoint Set (Cycle Detection and By Rank and Path Compression)

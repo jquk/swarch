@@ -13,9 +13,9 @@ BreadthFirstSearch::BreadthFirstSearch()
 *
 */
 BreadthFirstSearch::BreadthFirstSearch(std::vector<std::vector<unsigned int>>connectionsIdsMatrix)
-: m_connectionsIdsMatrix(connectionsIdsMatrix)
+/*: m_inputs.connectionsIdsMatrix(connectionsIdsMatrix)*/
 {
-
+  this->m_inputs.connectionsIdsMatrix = connectionsIdsMatrix;
 }
 
 /*
@@ -58,10 +58,10 @@ std::vector<unsigned int> BreadthFirstSearch::getShortestPath(std::vector<std::v
 */
 void BreadthFirstSearch::init(unsigned int startNode, unsigned int targetNode)
 {
-  this->m_startNode = startNode;
-  this->m_targetNode = targetNode;
-  this->m_currentNodeValue = startNode;
-  this->m_currentNodeIndex = 0;
+  this->m_inputs.startNode = startNode;
+  this->m_inputs.targetNode = targetNode;
+  this->m_currentState.nodeValue = startNode;
+  this->m_currentState.nodeIndex = 0;
 }
 
 /*
@@ -73,28 +73,28 @@ void BreadthFirstSearch::fillVector()
   this->addNeighborsIdsToVector(&currentNodeNeighborsIds);
 
   // get neighbors of node
-  currentNodeNeighborsIds = this->getNeighborsIdsOfNode(this->m_currentNodeValue);
+  currentNodeNeighborsIds = this->getNeighborsIdsOfNode(this->m_currentState.nodeValue);
 
   // update Vector
   this->addNeighborsIdsToVector(&currentNodeNeighborsIds);
-  this->m_currentNodeIndex = 0;//getIndex(this->m_exploredNodesTree, this->m_currentNodeValue);
-  unsigned int currentNodeValue = this->m_exploredNodesTree[this->m_currentNodeIndex];
-  this->m_currentNodeIndex++;
-  currentNodeValue = this->m_exploredNodesTree[this->m_currentNodeIndex];
+  this->m_currentState.nodeIndex = 0;//getIndex(this->m_currentState.exploredNodesTree, this->m_currentState.nodeValue);
+  unsigned int currentNodeValue = this->m_currentState.exploredNodesTree[this->m_currentState.nodeIndex];
+  this->m_currentState.nodeIndex++;
+  currentNodeValue = this->m_currentState.exploredNodesTree[this->m_currentState.nodeIndex];
 
   // check if there are more nodes to explore
-  while (this->m_connectionsIdsMatrix.size() > this->m_currentNodeIndex) {
+  while (this->m_inputs.connectionsIdsMatrix.size() > this->m_currentState.nodeIndex) {
     // get neighbors of node
     currentNodeNeighborsIds = this->getNeighborsIdsOfNode(currentNodeValue);
     // update Vector
     this->addNeighborsIdsToVectorWithoutRepetition(&currentNodeNeighborsIds);
-    this->m_currentNodeIndex++;
-    currentNodeValue = this->m_exploredNodesTree[this->m_currentNodeIndex];
+    this->m_currentState.nodeIndex++;
+    currentNodeValue = this->m_currentState.exploredNodesTree[this->m_currentState.nodeIndex];
   }
 
   std::cout << "\nFinal explored nodes list {";
-  for (size_t i = 0; i < this->m_exploredNodesTree.size(); i++) {
-    std::cout << this->m_exploredNodesTree[i] << ", ";
+  for (size_t i = 0; i < this->m_currentState.exploredNodesTree.size(); i++) {
+    std::cout << this->m_currentState.exploredNodesTree[i] << ", ";
   }
   std::cout << "}\n";
 }
@@ -115,7 +115,7 @@ void BreadthFirstSearch::findAllPathsAndRankThemByLength()
 */
 void BreadthFirstSearch::setGraphConnectionsIds(std::vector<std::vector<unsigned int>> *connectionsIdsMatrix)
 {
-  this->m_connectionsIdsMatrix = *connectionsIdsMatrix;
+  this->m_inputs.connectionsIdsMatrix = *connectionsIdsMatrix;
 }
 
 /*
@@ -123,7 +123,7 @@ void BreadthFirstSearch::setGraphConnectionsIds(std::vector<std::vector<unsigned
 */
 const std::vector<unsigned int> BreadthFirstSearch::getNeighborsIdsOfNode(unsigned int nodeIndex)
 {
-  return this->m_connectionsIdsMatrix.at(nodeIndex);
+  return this->m_inputs.connectionsIdsMatrix.at(nodeIndex);
 }
 
 /*
@@ -131,7 +131,7 @@ const std::vector<unsigned int> BreadthFirstSearch::getNeighborsIdsOfNode(unsign
 */
 void BreadthFirstSearch::addNeighborsIdsToVector(std::vector<unsigned int> *neighborsIds)
 {
-  this->m_exploredNodesTree.insert(this->m_exploredNodesTree.end(), neighborsIds->begin(), neighborsIds->end());
+  this->m_currentState.exploredNodesTree.insert(this->m_currentState.exploredNodesTree.end(), neighborsIds->begin(), neighborsIds->end());
 }
 
 /*
@@ -141,9 +141,9 @@ void BreadthFirstSearch::addNeighborsIdsToVectorWithoutRepetition(std::vector<un
 {
   int index = -1;
   for (size_t i = 0; i < neighborsIds->size(); i++) {
-    index = getIndex(this->m_exploredNodesTree, neighborsIds->at(i));
+    index = getIndex(this->m_currentState.exploredNodesTree, neighborsIds->at(i));
     if (index == -1) {
-      this->m_exploredNodesTree.push_back(neighborsIds->at(i));
+      this->m_currentState.exploredNodesTree.push_back(neighborsIds->at(i));
     }
   }
 }

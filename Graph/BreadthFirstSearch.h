@@ -1,5 +1,6 @@
 // #include "Graph.h"
 #include <vector>
+#include "Graph_dataTypes.h"
 
 /*
 * Implementation of the Breadth First Search algorithm.
@@ -19,13 +20,11 @@ public:
 
 private:
   // member variables
-  std::vector<std::vector<unsigned int>>m_connectionsIdsMatrix;
-  unsigned int m_startNode;
-  unsigned int m_targetNode;
-  unsigned int m_currentNodeIndex;
-  unsigned int m_currentNodeValue;
+  Inputs_t m_inputs;
+  CurrentState_t m_currentState;
+  Outputs_t m_outputs;
   //it might be interesting to store the nodes layers, but I don't know any application.
-  std::vector<unsigned int>m_exploredNodesTree;
+  // std::vector<unsigned int>m_exploredNodesTree;
   // std::vector<std::vector<unsigned int>>m_connectionsMatrix;
   // member functions (high level)
   void init(unsigned int startNode, unsigned int targetNode);

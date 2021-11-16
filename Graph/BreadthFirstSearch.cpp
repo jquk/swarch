@@ -73,18 +73,16 @@ void BreadthFirstSearch::fillVector()
 
   // get neighbors of node
   currentNodeNeighborsIds = this->getNeighborsIdsOfNode(this->m_currentNodeValue);
+
   // update Vector
   this->addNeighborsIdsToVector(&currentNodeNeighborsIds);
   unsigned int currentNodeIndex = 0;//getIndex(this->m_exploredNodesTree, this->m_currentNodeValue);
   unsigned int currentNodeValue = this->m_exploredNodesTree[currentNodeIndex];
-  // check if there are more nodes to explore
   currentNodeIndex++;
   currentNodeValue = this->m_exploredNodesTree[currentNodeIndex];
 
-  int ctr = 0;
   // check if there are more nodes to explore
-  while ((this->m_connectionsIdsMatrix.size() > currentNodeIndex) && (ctr < 20)) {
-    ctr++;
+  while (this->m_connectionsIdsMatrix.size() > currentNodeIndex) {
     // get neighbors of node
     currentNodeNeighborsIds = this->getNeighborsIdsOfNode(currentNodeValue);
     // update Vector
@@ -93,7 +91,7 @@ void BreadthFirstSearch::fillVector()
     currentNodeValue = this->m_exploredNodesTree[currentNodeIndex];
   }
 
-  std::cout << "\n\nFinal explored nodes list {";
+  std::cout << "\nFinal explored nodes list {";
   for (size_t i = 0; i < this->m_exploredNodesTree.size(); i++) {
     std::cout << this->m_exploredNodesTree[i] << ", ";
   }
@@ -136,7 +134,7 @@ void BreadthFirstSearch::addNeighborsIdsToVector(std::vector<unsigned int> *neig
 }
 
 /*
-*
+* If any of current node's neighbors is on the list of explored nodes, then append them to it.
 */
 void BreadthFirstSearch::addNeighborsIdsToVectorWithoutRepetition(std::vector<unsigned int> *neighborsIds)
 {

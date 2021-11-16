@@ -1,3 +1,5 @@
+#include <vector>
+
 struct Inputs_t
 {
   unsigned int startNode;
@@ -15,5 +17,5 @@ struct CurrentState_t
 {
   unsigned int nodeIndex;
   unsigned int nodeValue;
-  std::vector<unsigned int>exploredNodesTree;
+  std::vector<unsigned int>exploredNodesTree;//it might be interesting to store the nodes layers, but I don't know any application.
 };

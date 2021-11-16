@@ -15,7 +15,7 @@ BreadthFirstSearch::BreadthFirstSearch()
 BreadthFirstSearch::BreadthFirstSearch(std::vector<std::vector<unsigned int>>connectionsIdsMatrix)
 : m_inputs({0, 0, connectionsIdsMatrix})
 {
-  
+
 }
 
 /*
@@ -49,7 +49,6 @@ std::vector<unsigned int> BreadthFirstSearch::getShortestPath(std::vector<std::v
   std::vector<unsigned int> shortestPath = {0, 1, 2, 3};
   return shortestPath;
 }
-
 
 /*----------------------------------- Private Member Functions (high level) -----------------------------*/
 
@@ -145,24 +144,6 @@ void BreadthFirstSearch::addNeighborsIdsToVectorWithoutRepetition(std::vector<un
       this->m_currentState.exploredNodesTree.push_back(neighborsIds->at(i));
     }
   }
-}
-
-/*
-*
-*/
-void BreadthFirstSearch::goToNextNode()
-{
-  // get the index of m_currentNode in m_exploredNodesTree
-  // get the nodeId of the next element in m_exploredNodesTree
-  // set m_currentNode to that new value
-}
-
-/*
-*
-*/
-void BreadthFirstSearch::getShortestPath()
-{
-
 }
 
 /*

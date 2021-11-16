@@ -32,7 +32,5 @@ private:
   const std::vector<unsigned int> getNeighborsIdsOfNode(unsigned int nodeIndex);
   void addNeighborsIdsToVector(std::vector<unsigned int> *neighborsIds);
   void addNeighborsIdsToVectorWithoutRepetition(std::vector<unsigned int> *neighborsIds);
-  void goToNextNode();
-  void getShortestPath();
   int getIndex(std::vector<unsigned int> v, unsigned int target);
 };

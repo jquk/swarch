@@ -69,7 +69,7 @@ void BreadthFirstSearch::init(unsigned int startNode, unsigned int targetNode)
 */
 void BreadthFirstSearch::fillVector()
 {
-  std::vector<unsigned int> currentNodeNeighborsIds = {0};
+  std::vector<unsigned int> currentNodeNeighborsIds = {this->m_inputs.startNode};//ensure that the starting node is the first, for a better sorting
   this->addNeighborsIdsToVector(&currentNodeNeighborsIds);
 
   // get neighbors of node
@@ -77,7 +77,6 @@ void BreadthFirstSearch::fillVector()
 
   // update Vector
   this->addNeighborsIdsToVector(&currentNodeNeighborsIds);
-  this->m_currentState.nodeIndex = 0;//getIndex(this->m_currentState.exploredNodesTree, this->m_currentState.nodeValue);
   unsigned int currentNodeValue = this->m_currentState.exploredNodesTree[this->m_currentState.nodeIndex];
   this->m_currentState.nodeIndex++;
   currentNodeValue = this->m_currentState.exploredNodesTree[this->m_currentState.nodeIndex];

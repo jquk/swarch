@@ -18,6 +18,8 @@ g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Grap
 ```
 
 # ToDo
+- Graph-BFS: find all possible paths.
+- Graph-BFS: find the shortest path.
 - Validate user inputs.
 
 ### Graph algorithms

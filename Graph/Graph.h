@@ -1,12 +1,14 @@
 #include <vector>
-// #include "BreadthFirstSearch.h"
+#include "BreadthFirstSearch.h"
+// class BreadthFirstSearch;
+
 enum GraphAlgorithm { BREADTH_FIRST_SEARCH, DEPTH_FIRST_SEARCH };
 
 
 /*
 *
 */
-class Graph {
+class Graph: public BreadthFirstSearch {
 public:
   // constructor
   Graph();

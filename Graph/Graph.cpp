@@ -1,6 +1,5 @@
 #include "Graph_Cfg.h"
 #include "Graph.h"
-#include "BreadthFirstSearch.h"
 #include <iostream>
 
 /*
@@ -183,7 +182,7 @@ std::vector<unsigned int> Graph::getShortestPath(GraphAlgorithm algorithm, unsig
   switch (algorithm) {
     case BREADTH_FIRST_SEARCH:
       {
-        BreadthFirstSearch breadthFirstSearch(this->m_connectionsMatrix);
+        BreadthFirstSearch breadthFirstSearch(this->m_connectionsIdsMatrix);
         retVal_shortestPath = breadthFirstSearch.getShortestPath(startingNode, targetNode);
         break;
       }

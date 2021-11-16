@@ -13,9 +13,9 @@ BreadthFirstSearch::BreadthFirstSearch()
 *
 */
 BreadthFirstSearch::BreadthFirstSearch(std::vector<std::vector<unsigned int>>connectionsIdsMatrix)
-/*: m_inputs.connectionsIdsMatrix(connectionsIdsMatrix)*/
+: m_inputs({0, 0, connectionsIdsMatrix})
 {
-  this->m_inputs.connectionsIdsMatrix = connectionsIdsMatrix;
+  
 }
 
 /*

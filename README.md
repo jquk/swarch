@@ -17,6 +17,9 @@ g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Grap
 ./bin/main <algoCathegory> <algoName> <params...>
 ```
 
+# ToDo
+- Validate user inputs.
+
 ### Graph algorithms
 1. **Breadth First Search (BFS)**
 2. Depth First Search (DFS)

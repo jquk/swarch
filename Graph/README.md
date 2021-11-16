@@ -1,18 +1,22 @@
 # Graph Algorithms
 
 ## Graph class
-An instance of the Graph class will load the adjacentMatrix_Cfg.
+The Graph class inherits from multiple algorithm-specific classes.
+An instance of the Graph class will load the adjacentMatrix_Cfg by default, unless other from the _Cfg list is specified with Graph::setGraph(int).
 In the Graph_Cfg.h file you can create new connection matrix (adjacentMatrix), and assign it to adjacentMatrix_Cfg, to be loaded by any Graph instance.
 
 ## Breadth First Search (BFS) CLI usage
 Show general information of the Nth graph:
 ```
 ./bin/main Graph Info <graphId>
+./bin/main Graph Info 2
 ```
-Show the shortest path between a starting node and a target node, in the Nth graph:
+Show the shortest path between a starting node and a target node, for a given graph:
 ```
 ./bin/main Graph BFS <graphId> <startingNodeId> <targetNodeId>
+./bin/main Graph BFS 2 0 4
 ```
+
 ## Breadth First Search (BFS)
 Used to explore nodes and edges on a graph.
 Runs in time complexity O(NoVertices + NoEdges).

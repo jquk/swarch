@@ -3,16 +3,19 @@ Software architecture related code snippets, exercises and documentation.
 
 # Status
 Project under active development.
-
-# Compile and Run
-```
-g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Graph/Graph.cpp -o bin/main && ./bin/main <algoCathegory> <algoName> <params...>
-```
-
-## Interesting algorithms
 Note the meaning of the highlights in this list:
  - *Italics* highlight for implemented algorithms.
  - **Bold** highlight for algorithms under active development.
+
+# Compile and Run
+**Compile:**
+```
+g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Graph/Graph.cpp -o bin/main
+```
+**Run:** see sub-readme files for details on each algo cathegory:
+```
+./bin/main <algoCathegory> <algoName> <params...>
+```
 
 ### Graph algorithms
 1. **Breadth First Search (BFS)**

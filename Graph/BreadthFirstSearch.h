@@ -23,9 +23,6 @@ private:
   Inputs_t m_inputs;
   CurrentState_t m_currentState;
   Outputs_t m_outputs;
-  //it might be interesting to store the nodes layers, but I don't know any application.
-  // std::vector<unsigned int>m_exploredNodesTree;
-  // std::vector<std::vector<unsigned int>>m_connectionsMatrix;
   // member functions (high level)
   void init(unsigned int startNode, unsigned int targetNode);
   void fillVector();
@@ -38,5 +35,4 @@ private:
   void goToNextNode();
   void getShortestPath();
   int getIndex(std::vector<unsigned int> v, unsigned int target);
-  // unsigned int getIndex(unsigned int target);
 };

@@ -91,7 +91,7 @@ void BreadthFirstSearch::fillVector()
 
   int ctr = 0;
   // check if there are more nodes to explore
-  while ((this->m_connectionsIdsMatrix.size() >= currentNodeIndex) && (ctr < 20)) {
+  while ((this->m_connectionsIdsMatrix.size() > currentNodeIndex) && (ctr < 20)) {
     ctr++;
     std::cout << "\nthis->m_exploredNodesTree.size: " << this->m_exploredNodesTree.size();
     std::cout << "\nneighborsIdsOfNode_idx(" << currentNodeIndex << ")_val(" << currentNodeValue << ") = {";

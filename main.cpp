@@ -41,6 +41,8 @@ int main(int argc, char *argv[])
       }
     } else if ((algorithmName == "BFS") || (algorithmName == "BreadthFirstSearch")) {
       std::cout << "BFS" << std::endl;
+      // bool theInputsAreValid = argv[3] && argv[4] && argv[5];
+      // theInputsAreValid &= true;
       if (argv[3] && argv[4] && argv[5]) {
         int selectedGraph = atoi(argv[3]);
         graph.setGraph(selectedGraph);
@@ -49,14 +51,13 @@ int main(int argc, char *argv[])
         graph.printNeighborIdsOfNode(startingNode);
         graph.printNeighborIdsOfNode(targetNode);
         std::vector<unsigned int> shortestPath = graph.getShortestPath(BREADTH_FIRST_SEARCH, startingNode, targetNode);
-        std::cout << "Shortest path: ";
+        std::cout << "Shortest path (dummy path data): ";
         for (unsigned int i = 0; i < shortestPath.size(); i++) {
           std::cout << shortestPath[i] << " ";
         }
         std::cout << std::endl;
       } else {
-        graph.printGraphConnections();
-        graph.printGraphConnectionsIds();
+        std::cout << "Please give the right inputs: $ ./bin/main Graph BFS <graphId> <startNodeId> <targetNodeId>\n";
       }
     }
   } else {

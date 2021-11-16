@@ -61,6 +61,7 @@ void BreadthFirstSearch::init(unsigned int startNode, unsigned int targetNode)
   this->m_startNode = startNode;
   this->m_targetNode = targetNode;
   this->m_currentNodeValue = startNode;
+  this->m_currentNodeIndex = 0;
 }
 
 /*
@@ -76,19 +77,19 @@ void BreadthFirstSearch::fillVector()
 
   // update Vector
   this->addNeighborsIdsToVector(&currentNodeNeighborsIds);
-  unsigned int currentNodeIndex = 0;//getIndex(this->m_exploredNodesTree, this->m_currentNodeValue);
-  unsigned int currentNodeValue = this->m_exploredNodesTree[currentNodeIndex];
-  currentNodeIndex++;
-  currentNodeValue = this->m_exploredNodesTree[currentNodeIndex];
+  this->m_currentNodeIndex = 0;//getIndex(this->m_exploredNodesTree, this->m_currentNodeValue);
+  unsigned int currentNodeValue = this->m_exploredNodesTree[this->m_currentNodeIndex];
+  this->m_currentNodeIndex++;
+  currentNodeValue = this->m_exploredNodesTree[this->m_currentNodeIndex];
 
   // check if there are more nodes to explore
-  while (this->m_connectionsIdsMatrix.size() > currentNodeIndex) {
+  while (this->m_connectionsIdsMatrix.size() > this->m_currentNodeIndex) {
     // get neighbors of node
     currentNodeNeighborsIds = this->getNeighborsIdsOfNode(currentNodeValue);
     // update Vector
     this->addNeighborsIdsToVectorWithoutRepetition(&currentNodeNeighborsIds);
-    currentNodeIndex++;
-    currentNodeValue = this->m_exploredNodesTree[currentNodeIndex];
+    this->m_currentNodeIndex++;
+    currentNodeValue = this->m_exploredNodesTree[this->m_currentNodeIndex];
   }
 
   std::cout << "\nFinal explored nodes list {";

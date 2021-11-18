@@ -12,6 +12,11 @@ Note the meaning of the highlights in this list:
 ```
 g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Graph/Graph.cpp -o bin/main
 ```
+
+```
+g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Graph/Graph.cpp Graph/Layers.cpp Graph/Layer.cpp Graph/Node.cpp -o bin/main
+```
+
 **Run:** see sub-readme files for details on each algo cathegory:
 ```
 ./bin/main <algoCathegory> <algoName> <params...>
@@ -22,7 +27,9 @@ g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Grap
 - Graph-BFS: find the shortest path.
 - Validate user inputs.
 
-### Graph algorithms
+# Algorithms
+
+## Graph algorithms
 1. **Breadth First Search (BFS)**
 2. Depth First Search (DFS)
 3. Short test Path from source to all vertices Dijkstra
@@ -33,7 +40,7 @@ g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Grap
 8. Johnson’s algorithm
 9. Articulation Points (or Cut Vertices) in a Graph
 
-### Dynamic programming
+## Dynamic programming
 1. Longest Common Subsequence
 2. Longest Increasing Subsequence
 3. Edit Distance
@@ -45,7 +52,7 @@ g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Grap
 9. 0-1 Knapsack Problem
 10. Assembly Line Scheduling
 
-### Search and sorting
+## Search and sorting
 1. *Binary Search*
 2. Quick Sort
 3. Merge Sort
@@ -57,8 +64,8 @@ g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Grap
 9. Counting Sort
 10. Manacher’s algorithm: Part 1, Part 2 and Part 3
 
-### Number theory
-#### Prime Numbers and Prime Factorization
+## Number theory
+## Prime Numbers and Prime Factorization
 1. Primality Test | Set 1 (Introduction and School Method)
 2. Primality Test | Set 2 (Fermat Method)
 3. Primality Test | Set 3 (Miller–Rabin)
@@ -68,7 +75,7 @@ g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Grap
 7. Prime Factorization
 8. Pollard’s rho algorithm
 
-#### Modulo Arithmetic Algorithms
+## Modulo Arithmetic Algorithms
 1. Basic and Extended Euclidean algorithms
 2. Euler’s Totient Function
 3. Modular Exponentiation
@@ -77,7 +84,7 @@ g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Grap
 6. Chinese remainder theorem and Modulo Inverse Implementation
 7. nCr%m and this.
 
-### Geometrical and network flow algorithms
+## Geometrical and network flow algorithms
 1. Convex Hull
 2. Graham Scan
 3. Line Intersection
@@ -89,7 +96,7 @@ g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Grap
 9. Hopcrof t–Karp Algorithm for Maximum Matching
 10. Dinic’s algo and e-maxx
 
-### Data structures
+## Data structures
 1. Binary Indexed Tree or Fenwick tree
 2. Segment Tree (RMQ, Range Sum and L azy Propagation)
 3. K-D tree (See inser t, minimum and delete)
@@ -101,7 +108,7 @@ g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Grap
 9. Suffix automata II
 10. LCA and RMQ
 
-## References
+# References
 * https://www.win.tue.nl/~wstomv/edu/2ip30/references/criteria_for_modularization.pdf
 * https://medium.com/techie-delight/top-25-algorithms-every-programmer-should-know-373246b4881b
 * https://www.geeksforgeeks.org/top-algorithms-and-data-structures-for-competitive-programming/

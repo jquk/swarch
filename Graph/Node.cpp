@@ -3,8 +3,16 @@
 /*
 *
 */
-Node::Node(unsigned int layer)
-: m_layer(layer)
+Node::Node()
+{
+
+}
+
+/*
+*
+*/
+Node::Node(unsigned int layerId)
+: m_layerId(layerId)
 {
 
 }

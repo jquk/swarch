@@ -20,6 +20,15 @@ Node::Node(unsigned int layerId)
 /*
 *
 */
+Node::Node(unsigned int nodeId, unsigned int layerId)
+: m_nodeId(nodeId), m_layerId(layerId)
+{
+
+}
+
+/*
+*
+*/
 Node::~Node()
 {
 

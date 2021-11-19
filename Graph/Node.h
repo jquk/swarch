@@ -7,7 +7,8 @@ class Node {
 public:
   // constructor
   Node();
-  Node(unsigned int layer);
+  Node(unsigned int nodeId);
+  Node(unsigned int nodeId, unsigned int layerId);
   // destructor
   ~Node();
 

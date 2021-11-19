@@ -20,24 +20,15 @@ Layer::~Layer()
 /*
 *
 */
-unsigned int getLayerId()
+unsigned int Layer::getLayerId()
 {
-  unsigned int layerId;
-  return layerId;
+  return this->m_layerId;
 }
 
 /*
 *
 */
-void addNodeId(unsigned int nodeId)
-{
-
-}
-
-/*
-*
-*/
-void addNode(Node node)
+void Layer::addNodeId(unsigned int nodeId)
 {
 
 }
@@ -45,16 +36,29 @@ void addNode(Node node)
 /*
 *
 */
-std::vector<Node> getNodeById(unsigned int nodeId)
+void Layer::addNode(Node node)
 {
-  std::vector<Node> node;
-  return node;
+
 }
 
 /*
 *
 */
-std::vector<unsigned int> getNodesIds()
+Node Layer::getNodeById(unsigned int nodeId)
+{
+  Node retVal_node;
+  for (size_t i = 0; i < this->m_nodes.size(); i++) {
+    if(this->m_nodes.at(i).getNodeId() == nodeId) {
+      retVal_node.setNodeId(nodeId);
+    }
+  }
+  return retVal_node;
+}
+
+/*
+*
+*/
+std::vector<unsigned int> Layer::getNodesIds()
 {
   std::vector<unsigned int> nodes;
   return nodes;
@@ -63,24 +67,15 @@ std::vector<unsigned int> getNodesIds()
 /*
 *
 */
-std::vector<Node> getNodes()
+std::vector<Node> Layer::getNodes()
 {
-  std::vector<Node> node;
-  return node;
+  return this->m_nodes;
 }
 
 /*
 *
 */
-void addNodesIds(std::vector<unsigned int> nodesIds)
-{
-
-}
-
-/*
-*
-*/
-void addNodes(std::vector<Node> nodes)
+void Layer::addNodesIds(std::vector<unsigned int> nodesIds)
 {
 
 }
@@ -88,7 +83,7 @@ void addNodes(std::vector<Node> nodes)
 /*
 *
 */
-void removeNodesByIds(std::vector<unsigned int> nodesIds)
+void Layer::addNodes(std::vector<Node> nodes)
 {
 
 }
@@ -96,7 +91,15 @@ void removeNodesByIds(std::vector<unsigned int> nodesIds)
 /*
 *
 */
-void removeNodes(std::vector<Node> nodes)
+void Layer::removeNodesByIds(std::vector<unsigned int> nodesIds)
+{
+
+}
+
+/*
+*
+*/
+void Layer::removeNodes(std::vector<Node> nodes)
 {
 
 }

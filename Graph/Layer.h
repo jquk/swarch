@@ -17,7 +17,7 @@ public:
   unsigned int getLayerId();
   void addNodeId(unsigned int nodeId);
   void addNode(Node node);
-  std::vector<Node> getNodeById(unsigned int nodeId);
+  Node getNodeById(unsigned int nodeId);
   std::vector<unsigned int> getNodesIds();
   std::vector<Node> getNodes();
   void addNodesIds(std::vector<unsigned int> nodesIds);

@@ -24,16 +24,17 @@ public:
   void printLayer(Layer *layer);
   void printLayers();
   // public member functions: get layer
-  Layer getLayerById(unsigned int layerId);
-  Layer getLayerByNodeId(unsigned int nodeId);//returns the layer that the node belongs to
+  Layer *getLayerById(unsigned int layerId);
+  Layer *getLayerByNodeId(unsigned int nodeId);//returns the layer that the node belongs to
   // public member functions: add/remove layers
-  void pushBackLayer();//add a new layer at the end of the vector
+  void addNewLayer();//add a new layer at the end of the vector
+  void pushBackLayer(Layer layer);//add a new layer at the end of the vector
   int popFrontLayer();//remove the first layer of the vector
   // public member functions: operations with nodes
   void addNode(unsigned int nodeId);//adds a node to the last layer
-  void addNode(Node *node);//adds a node to the last layer
+  void addNode(Node node);//adds a node to the last layer
   int removeNode(unsigned int nodeId);//removes a node from the last layer
-  int addNodeToLayer(unsigned int nodeId, unsigned int layerId);
+  void addNodeToLayer(unsigned int nodeId, unsigned int layerId);
   int removeNodeFromLayer(unsigned int nodeId, unsigned int layerId);
   Node getNodeById(unsigned int nodeId);
   std::vector<unsigned int> getNodesIds();

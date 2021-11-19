@@ -22,10 +22,13 @@ public:
   Node getNodeById(unsigned int nodeId);
   std::vector<unsigned int> getNodesIds();
   std::vector<Node> getNodes();
+  unsigned int getNumberOfNodes();
   void addNodesIds(std::vector<unsigned int> nodesIds);
-  void addNodes(std::vector<Node> nodes);
+  void addNodes(std::vector<Node> *nodes);
   void removeNodesByIds(std::vector<unsigned int> nodesIds);
-  void removeNodes(std::vector<Node> nodes);
+  void removeNodes(std::vector<Node> *nodes);
+  void removeNodeById(unsigned int nodeId);
+  void removeNode(Node node);
 
 private:
   // private member variables

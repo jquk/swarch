@@ -12,6 +12,26 @@ Layer::Layer(unsigned int layerId)
 /*
 *
 */
+Layer::Layer(unsigned int layerId, std::vector<int> nodesIds)
+: m_layerId(layerId)
+{
+  for (size_t i = 0; i < nodesIds.size(); i++) {
+    this->addNodeId(nodesIds.at(i));
+  }
+}
+
+/*
+*
+*/
+Layer::Layer(unsigned int layerId, std::vector<Node> nodes)
+: m_layerId(layerId), m_nodes(nodes)
+{
+
+}
+
+/*
+*
+*/
 Layer::~Layer()
 {
 
@@ -26,11 +46,12 @@ unsigned int Layer::getLayerId()
 }
 
 /*
-*
+* Add a node to the last layer.
 */
 void Layer::addNodeId(unsigned int nodeId)
 {
-
+  Node node(nodeId, this->m_layerId);
+  this->m_nodes.push_back(node);
 }
 
 /*

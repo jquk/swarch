@@ -8,6 +8,8 @@ class Layer {
 public:
   // constructor
   Layer(unsigned int layerId);
+  Layer(unsigned int layerId, std::vector<int> nodesIds);
+  Layer(unsigned int layerId, std::vector<Node> nodes);
   // destructor
   ~Layer();
 

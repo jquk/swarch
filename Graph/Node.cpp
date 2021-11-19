@@ -52,9 +52,9 @@ unsigned int Node::getNodeId()
 /*
 *
 */
-void Node::setLayerId()
+void Node::setLayerId(unsigned int layerId)
 {
-
+  this->m_layerId = layerId;
 }
 
 /*
@@ -62,7 +62,7 @@ void Node::setLayerId()
 */
 void Node::setNodeId(unsigned int nodeId)
 {
-
+  this->m_nodeId = nodeId;
 }
 
 /*
@@ -70,8 +70,7 @@ void Node::setNodeId(unsigned int nodeId)
 */
 std::vector<unsigned int> Node::getNeighbors()
 {
-  std::vector<unsigned int> retVal_neighbors = {};
-  return retVal_neighbors;
+  return this->m_neighbors;
 }
 
 /*
@@ -79,5 +78,5 @@ std::vector<unsigned int> Node::getNeighbors()
 */
 void Node::setNeighbors(std::vector<unsigned int> neighbors)
 {
-
+  this->m_neighbors = neighbors;
 }

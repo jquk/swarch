@@ -17,7 +17,7 @@ public:
   bool getExplored();
   void setExplored(bool explored);
   unsigned int getNodeId();
-  void setLayerId();
+  void setLayerId(unsigned int layerId);
   void setNodeId(unsigned int nodeId);
   std::vector<unsigned int> getNeighbors();
   void setNeighbors(std::vector<unsigned int> neighbors);

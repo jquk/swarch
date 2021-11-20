@@ -129,10 +129,15 @@ Layer *Layers::getLayerById(unsigned int layerId)
 /*
 *
 */
-void Layers::addNewLayer()
+void Layers::addLayer()
 {
-  Layer layer(this->m_layers.at(this->m_layers.size()).getLayerId() + 1);
-  this->m_layers.push_back(layer);
+  if (this->m_layers.size() > 0) {
+    Layer layer(this->m_layers.at(this->m_layers.size() - 1).getLayerId() + 1);
+    this->m_layers.push_back(layer);
+  } else {
+    Layer layer(0);
+    this->m_layers.push_back(layer);
+  }
 }
 
 /*

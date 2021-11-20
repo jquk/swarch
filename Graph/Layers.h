@@ -27,7 +27,7 @@ public:
   Layer *getLayerById(unsigned int layerId);
   Layer *getLayerByNodeId(unsigned int nodeId);//returns the layer that the node belongs to
   // public member functions: add/remove layers
-  void addNewLayer();//add a new layer at the end of the vector
+  void addLayer();//add a new layer at the end of the vector
   void pushBackLayer(Layer layer);//add a new layer at the end of the vector
   int popFrontLayer();//remove the first layer of the vector
   // public member functions: operations with nodes

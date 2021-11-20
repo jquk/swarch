@@ -1,6 +1,7 @@
 // #include "Graph.h"
 #include <vector>
-#include "Graph_dataTypes.h"
+#include "dataTypes.h"
+#include "Layers.h"
 
 /*
 * Implementation of the Breadth First Search algorithm.
@@ -23,14 +24,16 @@ private:
   Inputs_t m_inputs;
   CurrentState_t m_currentState;
   Outputs_t m_outputs;
+  Layers m_layers;
   // member functions (high level)
   void init(unsigned int startNode, unsigned int targetNode);
-  void fillVector();
-  void findAllPathsAndRankThemByLength();
+  void exploreGraph();
+  void findPaths();
+  void findAllPaths();
   // member functions (low level)
   void setGraphConnectionsIds(std::vector<std::vector<unsigned int>> *connectionsIdsMatrix);
   const std::vector<unsigned int> getNeighborsIdsOfNode(unsigned int nodeIndex);
-  void addNeighborsIdsToVector(std::vector<unsigned int> *neighborsIds);
-  void addNeighborsIdsToVectorWithoutRepetition(std::vector<unsigned int> *neighborsIds);
+  void addNeighborsIdsToExploredNodesVector(std::vector<unsigned int> *neighborsIds);
+  void addNeighborsIdsToExploredNodesVectorWithoutRepetition(std::vector<unsigned int> *neighborsIds);
   int getIndex(std::vector<unsigned int> v, unsigned int target);
 };

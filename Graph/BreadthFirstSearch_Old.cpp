@@ -34,7 +34,7 @@ BreadthFirstSearch::~BreadthFirstSearch()
 std::vector<unsigned int> BreadthFirstSearch::getShortestPath(unsigned int startNode, unsigned int targetNode)
 {
   this->init(startNode, targetNode);
-  this->exploreGraph();
+  this->fillVector();
   std::vector<unsigned int> shortestPath = {0, 1, 2, 3};
   this->findPaths();
   return shortestPath;
@@ -46,7 +46,7 @@ std::vector<unsigned int> BreadthFirstSearch::getShortestPath(unsigned int start
 std::vector<unsigned int> BreadthFirstSearch::getShortestPath(std::vector<std::vector<unsigned int>> *connectionsMatrix, unsigned int startNode, unsigned int targetNode)
 {
   this->init(startNode, targetNode);
-  this->exploreGraph();
+  this->fillVector();
   std::vector<unsigned int> shortestPath = {0, 1, 2, 3};
   return shortestPath;
 }
@@ -67,21 +67,16 @@ void BreadthFirstSearch::init(unsigned int startNode, unsigned int targetNode)
 /*
 *
 */
-void BreadthFirstSearch::exploreGraph()
+void BreadthFirstSearch::fillVector()
 {
   std::vector<unsigned int> currentNodeNeighborsIds = {this->m_inputs.startNode};//ensure that the starting node is the first, for a better sorting
-  this->addNeighborsIdsToExploredNodesVector(&currentNodeNeighborsIds);
-  // Layer layer(0);
-  // layer.addNode(this->m_inputs.startNode);
-  this->m_layers.addLayer();
-  this->m_layers.getLayerById(0)->addNode(this->m_inputs.startNode);
+  this->addNeighborsIdsToVector(&currentNodeNeighborsIds);
 
   // get neighbors of node
   currentNodeNeighborsIds = this->getNeighborsIdsOfNode(this->m_currentState.nodeValue);
-  // this->m_layers.getLayerById(0)->addNodesIds(currentNodeNeighborsIds);
 
   // update Vector
-  this->addNeighborsIdsToExploredNodesVector(&currentNodeNeighborsIds);
+  this->addNeighborsIdsToVector(&currentNodeNeighborsIds);
   unsigned int currentNodeValue = this->m_currentState.exploredNodesTree[this->m_currentState.nodeIndex];
   this->m_currentState.nodeIndex++;
   currentNodeValue = this->m_currentState.exploredNodesTree[this->m_currentState.nodeIndex];
@@ -90,36 +85,17 @@ void BreadthFirstSearch::exploreGraph()
   while (this->m_inputs.connectionsIdsMatrix.size() > this->m_currentState.nodeIndex) {
     // get neighbors of node
     currentNodeNeighborsIds = this->getNeighborsIdsOfNode(currentNodeValue);
-    // add layers IF those nodes ought to
-    // Layer layer(this->m_currentState.nodeIndex);
-    // layer.addNode(this->m_inputs.startNode);
-    this->m_layers.addLayer(/*layer*/);
-    // // add nodes to those layers
-    this->m_layers.getLayerById(this->m_currentState.nodeIndex)->addNodesIds(currentNodeNeighborsIds);
-
     // update Vector
-    this->addNeighborsIdsToExploredNodesVectorWithoutRepetition(&currentNodeNeighborsIds);
+    this->addNeighborsIdsToVectorWithoutRepetition(&currentNodeNeighborsIds);
     this->m_currentState.nodeIndex++;
     currentNodeValue = this->m_currentState.exploredNodesTree[this->m_currentState.nodeIndex];
   }
-
 
   std::cout << "Final explored nodes list {";
   for (size_t i = 0; i < this->m_currentState.exploredNodesTree.size(); i++) {
     std::cout << this->m_currentState.exploredNodesTree[i] << ", ";
   }
   std::cout << "}\n";
-
-  // show nodes by layer
-  std::cout << "\nNUMBER OF LAYERS: " << this->m_layers.getNumberOfLayers();
-  for (size_t i = 0; i < this->m_layers.getNumberOfLayers(); i++) {
-    std::cout << "\n  - layer#" << i << "={";
-    std::vector<unsigned int> nodes = this->m_layers.getLayerById(i)->getNodesIds();
-    for (size_t j = 0; j < nodes.size(); j++) {
-      std::cout << nodes.at(j) << ", ";
-    }
-    std::cout <<"}";
-  }
 }
 
 /*
@@ -317,7 +293,7 @@ const std::vector<unsigned int> BreadthFirstSearch::getNeighborsIdsOfNode(unsign
 /*
 *
 */
-void BreadthFirstSearch::addNeighborsIdsToExploredNodesVector(std::vector<unsigned int> *neighborsIds)
+void BreadthFirstSearch::addNeighborsIdsToVector(std::vector<unsigned int> *neighborsIds)
 {
   this->m_currentState.exploredNodesTree.insert(this->m_currentState.exploredNodesTree.end(), neighborsIds->begin(), neighborsIds->end());
 }
@@ -325,7 +301,7 @@ void BreadthFirstSearch::addNeighborsIdsToExploredNodesVector(std::vector<unsign
 /*
 * If any of current node's neighbors is on the list of explored nodes, then append them to it.
 */
-void BreadthFirstSearch::addNeighborsIdsToExploredNodesVectorWithoutRepetition(std::vector<unsigned int> *neighborsIds)
+void BreadthFirstSearch::addNeighborsIdsToVectorWithoutRepetition(std::vector<unsigned int> *neighborsIds)
 {
   int index = -1;
   for (size_t i = 0; i < neighborsIds->size(); i++) {

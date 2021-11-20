@@ -30,10 +30,10 @@ g++ main.cpp SearchAndSorting/BinarySearch.cpp Graph/BreadthFirstSearch.cpp Grap
 # Algorithms
 
 ## Graph algorithms
-1. **Breadth First Search (BFS)**
+1. *Breadth First Search (BFS)*
 2. Depth First Search (DFS)
 3. Short test Path from source to all vertices Dijkstra
-4. Short test Path from ever y vertex to ever y other vertex Floyd Warshall
+4. Short test Path from every vertex to every other vertex Floyd Warshall
 5. Minimum Spanning tree Prim
 6. Minimum Spanning tree Kruskal
 7. Topological Sort

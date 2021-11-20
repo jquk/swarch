@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
         graph.printNeighborIdsOfNode(startingNode);
         graph.printNeighborIdsOfNode(targetNode);
         std::vector<unsigned int> shortestPath = graph.getShortestPath(BREADTH_FIRST_SEARCH, startingNode, targetNode);
-        std::cout << "Shortest path (dummy path data): ";
+        std::cout << "\nShortest path (dummy path data): ";
         for (unsigned int i = 0; i < shortestPath.size(); i++) {
           std::cout << shortestPath[i] << " ";
         }

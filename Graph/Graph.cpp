@@ -67,7 +67,7 @@ std::vector<std::vector<unsigned int>> Graph::getGraphConnections()
 void Graph::printGraphConnections()
 {
   std::string connectionMatrix_str("");
-  std::cout << "GraphConnections:\n";
+  std::cout << "Adjacency matrix:\n";
   // For each row (node), iterate also over the columns (connections to other nodes)
   for (size_t i = 0; i < this->m_connectionsMatrix.size(); i++) {
     connectionMatrix_str += "Node#" + std::to_string(i) + "'s connections: ";
@@ -113,7 +113,7 @@ std::vector<std::vector<unsigned int>> Graph::getGraphConnectionsIds()
 void Graph::printGraphConnectionsIds()
 {
   std::string connectionsIdsMatrix_str("");
-  std::cout << "GraphConnectionsIds:\n";
+  std::cout << "Adjacency list:\n";
   for (size_t i = 0; i < this->m_connectionsIdsMatrix.size(); i++) {
     connectionsIdsMatrix_str += "Node#" + std::to_string(i) + "'s connections: { ";
     for (size_t j = 0; j < this->m_connectionsIdsMatrix.at(i).size(); j++) {

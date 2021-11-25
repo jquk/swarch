@@ -15,6 +15,13 @@
 * thus being non-simmetric, meaning that every connection has its opposite, but could have different costs in each direction.
 */
 
+std::vector<std::vector<unsigned int>>connectionsMatrix_Cfg_default {
+      /*A, B, C*/
+  /*A*/{0, 1, 1},
+  /*B*/{1, 0, 0},
+  /*C*/{1, 0, 0}
+};
+
 // Take the reference from the picture 'ex1-AdjacencyMatrix.png'
 // but making it unweighted.
 std::vector<std::vector<unsigned int>>connectionsMatrix_Cfg_1 {
@@ -44,4 +51,4 @@ std::vector<std::vector<unsigned int>>connectionsMatrix_Cfg_2 {
   /*12*/{0, 0, 1, 0, 0, 0, 0, 0, 1, 0,  0,  0,  0}//12 is connected to 2, 8.
 };
 
-std::vector<std::vector<unsigned int>>connectionsMatrix_Cfg = connectionsMatrix_Cfg_2;
+std::vector<std::vector<std::vector<unsigned int>>>connectionsMatrix_Cfg = {connectionsMatrix_Cfg_default, connectionsMatrix_Cfg_1, connectionsMatrix_Cfg_2};

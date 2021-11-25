@@ -37,17 +37,17 @@ void Graph::setGraph(unsigned int graphId)
   switch (graphId) {
     case 1:
     {
-      this->m_connectionsMatrix = connectionsMatrix_Cfg_1;
+      this->m_connectionsMatrix = connectionsMatrix_Cfg[1];
       break;
     }
     case 2:
     {
-      this->m_connectionsMatrix = connectionsMatrix_Cfg_2;
+      this->m_connectionsMatrix = connectionsMatrix_Cfg[2];
       break;
     }
     default:
     {
-      this->m_connectionsMatrix = connectionsMatrix_Cfg;
+      this->m_connectionsMatrix = connectionsMatrix_Cfg[0];
     }
   }
   this->calculateGraphConnectionsIds();

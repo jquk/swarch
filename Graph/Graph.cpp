@@ -30,7 +30,10 @@ Graph::~Graph()
 }
 
 /*
-*
+* This function allows the program user to select different graphs without recompiling.
+* When calling the program with the command line interface, the parameter passed for the Graph Id,
+* will select the corresponding case of the switch block.
+* connectionsMatrix_Cfg is a 3D matrix, containing 2D graphs, in the Graph_Cfg.h file.
 */
 void Graph::setGraph(unsigned int graphId)
 {

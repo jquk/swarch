@@ -1,7 +1,13 @@
 #include <vector>
 
 /*
-* At the end of this file, assign the preferred connectionsMatrix_Cfg_<N> to connectionsMatrix_Cfg,
+* How to add and use a new "adjacency matrix":
+* 1. Create a new two dimensional array (using the std::vector template), that represents the connections between nodes.
+* 2. Add the new adjacency matrix into the 3D array named connectionsMatrix_Cfg at the end of this file.
+* 3. Go to Graph.cpp and in the function Graph::setGraph() add a new case to the switch,
+*    noticing that the corresponding switch value shall be used as index for the 3D adjacency matrix.
+*    When calling the program with the command line interface, the parameter passed for the Graph Id,
+*    will select the corresponding case of the switch block. 
 * being connectionsMatrix_Cfg the one that will be used in the algorithms.
 *
 * 2D matrix representing the connections
@@ -17,9 +23,9 @@
 
 std::vector<std::vector<unsigned int>>connectionsMatrix_Cfg_default {
       /*A, B, C*/
-  /*A*/{0, 1, 1},
-  /*B*/{1, 0, 0},
-  /*C*/{1, 0, 0}
+  /*A*/{0, 1, 1},//A is connected to B, C.
+  /*B*/{1, 0, 0},//B is connected to A.
+  /*C*/{1, 0, 0}//C is connected to A.
 };
 
 // Take the reference from the picture 'ex1-AdjacencyMatrix.png'
